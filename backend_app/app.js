@@ -18,7 +18,7 @@ const app = express()
 app.use(cors())
 app.use(express.json({limit: '5mb'}))
 const corsOptions = {
-    origin: '*',
+    origin: FRONTEND_URL
 }
 app.use(express.static('public'))
 
@@ -289,6 +289,10 @@ app.post('/api/image/get/matches', cors(corsOptions), (req, res) => {
     }
 })
 
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "frontend", "build")));
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+})
 
 app.get('/', (req, res) => {
     res.json({ message: 'Hello from server!' })
