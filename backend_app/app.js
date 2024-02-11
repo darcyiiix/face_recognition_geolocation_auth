@@ -290,8 +290,8 @@ app.post('/api/image/get/matches', cors(corsOptions), (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    app.use(express.static(path.resolve(__dirname, "frontend", "build")));
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    app.use(express.static(path.resolve(__dirname, "frontend_app", "build")));
+    res.sendFile(path.resolve(__dirname, "frontend_app", "build", "index.html"));
 })
 
 app.get('/', (req, res) => {
